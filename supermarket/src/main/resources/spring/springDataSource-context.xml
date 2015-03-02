@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/tx
@@ -17,29 +14,27 @@
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
        http://www.directwebremoting.org/schema/spring-dwr 
        http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd ">
-	
-	
-	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="username" 		 value="root"></property>
-		<property name="password" 		 value="root"></property>
-		<property name="url"			 value="jdbc:mysql://localhost:3306/test"></property>
+
+
+	<bean id="myDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/test"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
-	
+
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" 	 ref="myDataSource"></property>
-		<property name="configLocation"  value="/WEB-INF/classes/config/mybatis/myBatisConfigration.xml"></property>
+		<property name="dataSource" ref="myDataSource"></property>
+		<property name="configLocation"
+			value="/WEB-INF/classes/config/mybatis/myBatisConfigration.xml"></property>
 		<property name="mapperLocations" value="/WEB-INF/classes/config/mybatis/mapper/*.xml" />
+		<property name="typeAliasesPackage" value="com.flyjaky.supermarket.dao" />
 	</bean>
-	
+
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" 		value="com.flyjaky.supermaket.dao"></property>
-		<property name="sqlSessionFactoryBeanName"  value="sqlSessionFactory"></property>
+		<property name="basePackage" value="com.flyjaky.supermarket.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
-	
-<!-- 	<bean class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
-<!-- 		<property name="mapperInterface" value="com.xsxx.dao.UserMapper"></property> -->
-<!-- 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property> -->
-<!-- 	</bean> -->
-	
+
+
 </beans>
