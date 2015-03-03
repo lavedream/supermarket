@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>我的信息管理系统</title>
+<title>超市收银系统</title>
 </head>
 	<frameset rows="120px,*" framespacing="0" border="0" frameborder="no">
 		<frame scrolling="no" src="top.jsp"> 

@@ -1,16 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page isELIgnored="false"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<%@ include file="/common/head.jsp"%>
 </head>
 <body>
-	<h1>hello</h1>
-	${data }
+	<div class="container_12">
+		<div class="grid_10">
+			<div class="box round first grid">
+				<h2>商品列表</h2>
+				<div class="block">
+					<table class="data display datatable" id="example">
+						<thead>
+							<tr>
+								<th>商品名称</th>
+								<th>创建时间</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${data}" var="stu">
+								<tr  class="odd gradeA"><td>${stu.product_name}</td><td>${stu.created_at }</td></tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

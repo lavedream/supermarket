@@ -17,6 +17,6 @@ public interface ProductDao {
 	 * @date 2015/03/02 16:47
 	 * @desc 查询所有商品信息
 	 * */
-	public List<Map<String,Object>> getProductAll();
+	public List<Map<String,Object>> getProductAllPage();
 	
 }

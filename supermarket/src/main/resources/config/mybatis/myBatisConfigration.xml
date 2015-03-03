@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<mappers>
-	</mappers>
+
+	<properties>
+		<property name="dialect" value="mysql" />
+		<property name="pageSqlId" value=".*Page$" />
+	</properties>
+
+	
+	<plugins>
+		<plugin interceptor="com.flyjaky.supermarket.common.page.MysqlPaginationPlugin">
+			<property name="sqlIdRegex" value=".*Page$" />
+		</plugin>
+	</plugins>
 </configuration>
