@@ -9,22 +9,40 @@
 	<div class="container_12">
 		<div class="grid_10">
 			<div class="box round first grid">
-				<h2>商品列表</h2>
-				<div class="block">
-					<table class="data display datatable" id="example">
-						<thead>
-							<tr>
-								<th>商品名称</th>
-								<th>创建时间</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${data}" var="stu">
-								<tr  class="odd gradeA"><td>${stu.product_name}</td><td>${stu.created_at }</td></tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+				<form action="/hello/hello.html" method="post" id="seach">
+					<h2>商品列表</h2>
+					<div class="block">
+						<table class="form">
+							<tbody>
+								<tr>
+									<td class="col1"><label>商品名称</label></td>
+									<td class="col2"><input type="text" id="grumble" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">
+										<button class="btn btn-blue">提交</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="data display datatable" id="example">
+							<thead>
+								<tr>
+									<th>商品名称</th>
+									<th>创建时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${data}" var="stu">
+									<tr class="odd gradeA">
+										<td>${stu.product_name}</td>
+										<td>${stu.created_at }</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
