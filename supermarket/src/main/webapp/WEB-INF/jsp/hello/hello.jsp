@@ -20,7 +20,7 @@
 								</tr>
 								<tr>
 									<td colspan="2" align="center">
-										<button class="btn btn-blue">提交</button>
+										<button class="btn btn-blue">查询</button>
 									</td>
 								</tr>
 							</tbody>
@@ -35,7 +35,7 @@
 							<tbody>
 								<c:forEach items="${data}" var="stu">
 									<tr class="odd gradeA">
-										<td>${stu.product_name}</td>
+										<td><a href="javascript:void(0)">${stu.product_name}</a></td>
 										<td>${stu.created_at }</td>
 									</tr>
 								</c:forEach>

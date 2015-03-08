@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flyjaky.supermarket.dao.ProductDao">
+	<resultMap id="BaseResultMap" type="com.flyjaky.supermarket.entity.Product">
+		<id column="pid" property="pid" jdbcType="BIGINT" />
+		<result column="product_name" property="product_name" jdbcType="VARCHAR" />
+		<result column="purchase_price" property="purchase_price"
+			jdbcType="DOUBLE" />
+		<result column="sales_price" property="sales_price" jdbcType="DOUBLE" />
+		<result column="is_show_purchase_price" property="is_show_purchase_price"
+			jdbcType="TINYINT" />
+		<result column="project_code" property="project_code" jdbcType="VARCHAR" />
+		<result column="created_at" property="created_at" jdbcType="TIMESTAMP" />
+		<result column="updated_at" property="updated_at" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		pid, product_name, purchase_price, sales_price, is_show_purchase_price,
+		project_code,
+		created_at, updated_at
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from products
+		where pid = #{pid,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from products
+		where pid = #{pid,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.flyjaky.supermarket.entity.Product">
+		insert into products (pid, product_name, purchase_price,
+		sales_price, is_show_purchase_price, project_code,
+		created_at, updated_at)
+		values (#{pid,jdbcType=BIGINT}, #{product_name,jdbcType=VARCHAR},
+		#{purchase_price,jdbcType=DOUBLE},
+		#{sales_price,jdbcType=DOUBLE}, #{is_show_purchase_price,jdbcType=TINYINT},
+		#{project_code,jdbcType=VARCHAR},
+		#{created_at,jdbcType=TIMESTAMP}, #{updated_at,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.flyjaky.supermarket.entity.Product">
+		insert into products
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pid != null">
+				pid,
+			</if>
+			<if test="product_name != null">
+				product_name,
+			</if>
+			<if test="purchase_price != null">
+				purchase_price,
+			</if>
+			<if test="sales_price != null">
+				sales_price,
+			</if>
+			<if test="is_show_purchase_price != null">
+				is_show_purchase_price,
+			</if>
+			<if test="project_code != null">
+				project_code,
+			</if>
+			<if test="created_at != null">
+				created_at,
+			</if>
+			<if test="updated_at != null">
+				updated_at,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="pid != null">
+				#{pid,jdbcType=BIGINT},
+			</if>
+			<if test="product_name != null">
+				#{product_name,jdbcType=VARCHAR},
+			</if>
+			<if test="purchase_price != null">
+				#{purchase_price,jdbcType=DOUBLE},
+			</if>
+			<if test="sales_price != null">
+				#{sales_price,jdbcType=DOUBLE},
+			</if>
+			<if test="is_show_purchase_price != null">
+				#{is_show_purchase_price,jdbcType=TINYINT},
+			</if>
+			<if test="project_code != null">
+				#{project_code,jdbcType=VARCHAR},
+			</if>
+			<if test="created_at != null">
+				#{created_at,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updated_at != null">
+				#{updated_at,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.flyjaky.supermarket.entity.Product">
+		update products
+		<set>
+			<if test="product_name != null">
+				product_name = #{product_name,jdbcType=VARCHAR},
+			</if>
+			<if test="purchase_price != null">
+				purchase_price = #{purchase_price,jdbcType=DOUBLE},
+			</if>
+			<if test="sales_price != null">
+				sales_price = #{sales_price,jdbcType=DOUBLE},
+			</if>
+			<if test="is_show_purchase_price != null">
+				is_show_purchase_price = #{is_show_purchase_price,jdbcType=TINYINT},
+			</if>
+			<if test="project_code != null">
+				project_code = #{project_code,jdbcType=VARCHAR},
+			</if>
+			<if test="created_at != null">
+				created_at = #{created_at,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updated_at != null">
+				updated_at = #{updated_at,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where pid = #{pid,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.flyjaky.supermarket.entity.Product">
+		update products
+		set product_name = #{product_name,jdbcType=VARCHAR},
+		purchase_price = #{purchase_price,jdbcType=DOUBLE},
+		sales_price = #{sales_price,jdbcType=DOUBLE},
+		is_show_purchase_price = #{is_show_purchase_price,jdbcType=TINYINT},
+		project_code = #{project_code,jdbcType=VARCHAR},
+		created_at = #{created_at,jdbcType=TIMESTAMP},
+		updated_at = #{updated_at,jdbcType=TIMESTAMP}
+		where pid = #{pid,jdbcType=BIGINT}
+	</update>
+
+
+	<select id="getProductAllPage" resultType="map">
+		select * from products
+	</select>
+
+
+</mapper>
