@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.flyjaky.supermarket.entity.Product;
 import com.flyjaky.supermarket.service.ProductService;
 
 @Controller
@@ -24,4 +25,13 @@ public class HelloController {
 		System.out.println(data.size());
 		System.out.println("hello");
 	}
+	
+	@RequestMapping
+	public void detail(ModelMap map,Long id){
+		Product product=productService.getProjectById(id);
+		
+		 map.put("product", product);
+	}
+
 }
+

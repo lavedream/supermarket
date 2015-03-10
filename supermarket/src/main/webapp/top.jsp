@@ -43,7 +43,7 @@
                     </ul>
                 </li>
 				<li class="ic-typography"><a href="typography.html"><span>Typography</span></a></li>
-                <li class="ic-charts"><a href="charts.html"><span>Charts & Graphs</span></a></li>
+                <li class="ic-charts"><a href="charts.html"><span>Charts &amp; Graphs</span></a></li>
                 <li class="ic-grid-tables"><a href="table.html"><span>Data Table</span></a></li>
                 <li class="ic-gallery dd"><a href="javascript:"><span>Image Galleries</span></a>
                		 <ul>

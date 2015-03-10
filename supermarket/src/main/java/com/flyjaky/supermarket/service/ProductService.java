@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 
+import com.flyjaky.supermarket.entity.Product;
 import com.flyjaky.supermarket.manager.ProductManager;
 
 
@@ -22,5 +23,9 @@ public class ProductService {
 		return productManager.getProductAll();
 	}
 	
+	
+	public Product getProjectById(Long id){
+		return productManager.getProductById(id);
+	}
 	
 }
