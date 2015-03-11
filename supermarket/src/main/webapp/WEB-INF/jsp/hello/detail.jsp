@@ -16,9 +16,9 @@
 						<tbody>
 							<tr class="odd gradeA">
 								<th>商品名称</th>
-								<td><a href="javascript:void(0)">${product.product_name}</a></td>
+								<td><a>${product.product_name}</a></td>
 								<th>创建时间</th>
-								<td>${product.created_at }</td>
+								<td><fmt:formatDate value="${product.created_at }" type="both"/></td>
 							</tr>
 						</tbody>
 					</table>

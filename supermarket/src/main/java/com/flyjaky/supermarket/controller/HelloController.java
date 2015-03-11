@@ -22,14 +22,11 @@ public class HelloController {
 	public void hello(ModelMap map){
 		List<Map<String,Object>> data=productService.getProductAll();
 		map.put("data",data);
-		System.out.println(data.size());
-		System.out.println("hello");
 	}
 	
 	@RequestMapping
 	public void detail(ModelMap map,Long id){
 		Product product=productService.getProjectById(id);
-		
 		 map.put("product", product);
 	}
 

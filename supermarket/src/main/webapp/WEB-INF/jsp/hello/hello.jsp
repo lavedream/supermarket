@@ -35,7 +35,7 @@
 							<tbody>
 								<c:forEach items="${data}" var="stu">
 									<tr class="odd gradeA">
-										<td><a href="javascript:void(0)">${stu.product_name}</a></td>
+										<td><a  href="/hello/detail.html?id=${stu.pid}">${stu.product_name}</a></td>
 										<td>${stu.created_at }</td>
 									</tr>
 								</c:forEach>
