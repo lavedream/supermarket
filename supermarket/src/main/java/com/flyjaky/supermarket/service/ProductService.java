@@ -28,4 +28,8 @@ public class ProductService {
 		return productManager.getProductById(id);
 	}
 	
+	public void insertSelective(Product product){
+		productManager.insertSelective(product);
+	}
+	
 }

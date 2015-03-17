@@ -24,4 +24,8 @@ public class ProductManager {
 	public Product getProductById(Long id){
 		return productDao.selectByPrimaryKey(id);
 	}
+	
+	public void insertSelective(Product product){
+		productDao.insertSelective(product);
+	}
 }
