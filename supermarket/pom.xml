@@ -143,6 +143,14 @@
 			<version>5.1.34</version>
 		</dependency>
 
+		<!--JSON -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+
 
 	</dependencies>
 
