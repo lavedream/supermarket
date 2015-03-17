@@ -25,6 +25,15 @@
 								</tr>
 							</tbody>
 						</table>
+						<table class="form">
+							<tbody>
+								<tr>
+									<td align="left">
+										<a href="/hello/productNew.html" class="btn btn-blue">添加商品</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 						<table class="data display datatable" id="example">
 							<thead>
 								<tr>
@@ -35,7 +44,7 @@
 							<tbody>
 								<c:forEach items="${data}" var="stu">
 									<tr class="odd gradeA">
-										<td><a  href="/hello/detail.html?id=${stu.pid}">${stu.product_name}</a></td>
+										<td><a href="/hello/detail.html?id=${stu.pid}">${stu.product_name}</a></td>
 										<td>${stu.created_at }</td>
 									</tr>
 								</c:forEach>
