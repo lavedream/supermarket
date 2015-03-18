@@ -28,4 +28,8 @@ public class ProductManager {
 	public void insertSelective(Product product){
 		productDao.insertSelective(product);
 	}
+	
+	public void updateByPrimaryKeySelective(Product product){
+		productDao.updateByPrimaryKeySelective(product);
+	}
 }

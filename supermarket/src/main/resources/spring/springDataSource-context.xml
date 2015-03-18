@@ -35,6 +35,8 @@
 		<property name="basePackage" value="com.flyjaky.supermarket.dao"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
+	
+	
 
 
 </beans>

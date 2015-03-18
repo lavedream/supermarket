@@ -92,4 +92,26 @@ public class HelloController {
 		return data;
 	}
 	
+	@RequestMapping
+	@ResponseBody
+	/**
+	 * code :05
+	 * */
+	public Map<String,Object> editProduct(ModelMap map,Product product){
+		Map<String,Object> data=new HashMap<String, Object>();
+		Date currentDate=Calendar.getInstance().getTime();
+		product.setUpdated_at(currentDate);
+		try{
+			productService.updateByPrimaryKeySelective(product);
+			data.put("messageStatus", "000000");
+			data.put("message","产品修改成功！");
+		}catch(Exception e){
+			e.printStackTrace();  
+			data.put("messageStatus", "010500");
+			data.put("message","产品修改失败！"+"--"+e.getMessage());
+		}  
+		map.put("data", data); 
+		return data;
+	}
+	
 }

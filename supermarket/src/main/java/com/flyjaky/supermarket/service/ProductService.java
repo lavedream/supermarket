@@ -32,4 +32,9 @@ public class ProductService {
 		productManager.insertSelective(product);
 	}
 	
+	
+	public void updateByPrimaryKeySelective(Product product){
+		productManager.updateByPrimaryKeySelective(product);
+	}
+	
 }
