@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+ <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,14 +38,18 @@
 							<thead>
 								<tr>
 									<th>商品名称</th>
+									<th>商品进价</th>
 									<th>创建时间</th>
+									<th>操作</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${data}" var="stu">
+								<c:forEach items="${data}" var="product">
 									<tr class="odd gradeA">
-										<td><a href="/hello/detail.html?id=${stu.pid}">${stu.product_name}</a></td>
-										<td>${stu.created_at }</td>
+										<td><a href="/hello/detail.html?id=${product.pid}">${product.product_name}</a></td>
+										<td>${product.purchase_price}</td>
+										<td>${product.created_at }</td>
+										<td><a href="/hello/toEditProduct.html?id=${product.pid }" class="btn btn-blue">修改商品</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

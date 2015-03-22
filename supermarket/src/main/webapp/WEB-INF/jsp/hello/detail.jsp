@@ -18,7 +18,12 @@
 								<th>商品名称</th>
 								<td><a>${product.product_name}</a></td>
 								<th>创建时间</th>
-								<td><fmt:formatDate value="${product.created_at }" type="both"/></td>
+								<td><fmt:formatDate value="${product.created_at }"
+										type="both" /></td>
+							</tr>
+							<tr class="odd gradeA">
+								<th>商品进价</th>
+								<td><a>${product.purchase_price}</a></td>
 							</tr>
 						</tbody>
 					</table>

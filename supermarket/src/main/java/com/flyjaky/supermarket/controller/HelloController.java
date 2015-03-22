@@ -13,7 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.flyjaky.supermarket.common.response.ResponseMessage;
 import com.flyjaky.supermarket.entity.Product;
 import com.flyjaky.supermarket.service.ProductService;
 
@@ -90,6 +89,12 @@ public class HelloController {
 		}  
 		map.put("data", data); 
 		return data;
+	}
+	
+	@RequestMapping
+	public void toEditProduct(ModelMap map,Long id){
+		Product product=productService.getProjectById(id);
+		map.put("product", product);
 	}
 	
 	@RequestMapping
