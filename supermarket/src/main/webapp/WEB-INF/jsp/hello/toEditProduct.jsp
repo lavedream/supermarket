@@ -6,7 +6,7 @@
 <%@ include file="/common/head.jsp"%>
 <script type="text/javascript"
 	src="<%=path%>/js/views/product/product-edit.js"></script>
-<title>商品详情</title>
+<title>商品编辑</title>
 </head>
 <body>
 	<div class="container_12">

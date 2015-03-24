@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <%@ include file="/common/head.jsp"%>
+<title>商品列表页面</title>
 </head>
 <body>
 	<div class="container_12">

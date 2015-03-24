@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <%@ include file="/common/head.jsp"%>
 <script type="text/javascript" src="<%=path%>/js/views/product/product-new.js"></script>
-<title>商品详情</title>
+<title>商品添加</title>
 </head>
 <body>
 	<div class="container_12">
