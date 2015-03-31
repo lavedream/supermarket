@@ -1,5 +1,7 @@
 package com.flyjaky.supermarket.manager;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
@@ -49,6 +51,10 @@ public class OrderSheetManager {
 		return false;
 	}
 	
+	
+	public List<OrderSheet> getOrderSheetAll(OrderSheet record){
+		return orderSheetDao.getOrderSheetAll(record);
+	}
 	
 	
 }

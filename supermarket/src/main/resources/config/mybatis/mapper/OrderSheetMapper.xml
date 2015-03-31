@@ -90,4 +90,8 @@
       order_name = #{order_name,jdbcType=VARCHAR}
     where oid = #{oid,jdbcType=BIGINT}
   </update>
+  
+  <select id=""></select>
+  
+  
 </mapper>

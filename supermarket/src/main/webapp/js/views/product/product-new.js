@@ -8,7 +8,7 @@ ProductNew.prototype={
 			if(null !=map.data && map.data.messageStatus=="000000"){
 				alert(map.data.message);
 			}else{
-				alert(mapdata.messageStatus +" "+map.data.message);
+				alert(map.data.messageStatus +" "+map.data.message);
 			}
 		});
 	}

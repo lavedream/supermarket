@@ -1,5 +1,7 @@
 package com.flyjaky.supermarket.dao;
 
+import java.util.List;
+
 import com.flyjaky.supermarket.entity.OrderSheet;
 
 public interface OrderSheetDao {
@@ -14,4 +16,7 @@ public interface OrderSheetDao {
     int updateByPrimaryKeySelective(OrderSheet record);
 
     int updateByPrimaryKey(OrderSheet record);
+    
+    List<OrderSheet> getOrderSheetAll(OrderSheet record);
+    
 }
