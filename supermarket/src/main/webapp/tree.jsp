@@ -16,7 +16,7 @@
                         <li><a class="menuitem">基本信息管理</a>
                             <ul class="submenu">
                                 <li><a href="/hello/hello.html"  target="right">商品信息管理</a> </li>
-                                <li><a href="/orderSheet/orderSheetNew.html" target="right">定货单管理</a> </li>
+                                <li><a href="/orderSheet/orderSheetList.html" target="right">定货单管理</a> </li>
                                 <li><a class="active">Submenu 3</a> </li>
                                 <li><a>Submenu 4</a> </li>
                                 <li><a>Submenu 5</a> </li>
