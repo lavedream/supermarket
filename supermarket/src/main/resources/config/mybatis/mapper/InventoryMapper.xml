@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flyjaky.supermarket.dao.InventoryDao" >
+  <resultMap id="BaseResultMap" type="com.flyjaky.supermarket.entity.Inventory" >
+    <id column="inid" property="inid" jdbcType="BIGINT" />
+    <result column="pid" property="pid" jdbcType="BIGINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="created_at" property="created_at" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updated_at" jdbcType="TIMESTAMP" />
+    <result column="numbers" property="numbers" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    inid, pid, remark, created_at, updated_at, numbers
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from inventorys
+    where inid = #{inid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from inventorys
+    where inid = #{inid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.flyjaky.supermarket.entity.Inventory" >
+    insert into inventorys (inid, pid, remark, 
+      created_at, updated_at, numbers
+      )
+    values (#{inid,jdbcType=BIGINT}, #{pid,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, 
+      #{created_at,jdbcType=TIMESTAMP}, #{updated_at,jdbcType=TIMESTAMP}, #{numbers,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flyjaky.supermarket.entity.Inventory" >
+    insert into inventorys
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="inid != null" >
+        inid,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="created_at != null" >
+        created_at,
+      </if>
+      <if test="updated_at != null" >
+        updated_at,
+      </if>
+      <if test="numbers != null" >
+        numbers,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="inid != null" >
+        #{inid,jdbcType=BIGINT},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="created_at != null" >
+        #{created_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated_at != null" >
+        #{updated_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="numbers != null" >
+        #{numbers,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flyjaky.supermarket.entity.Inventory" >
+    update inventorys
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="created_at != null" >
+        created_at = #{created_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated_at != null" >
+        updated_at = #{updated_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="numbers != null" >
+        numbers = #{numbers,jdbcType=BIGINT},
+      </if>
+    </set>
+    where inid = #{inid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flyjaky.supermarket.entity.Inventory" >
+    update inventorys
+    set pid = #{pid,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      created_at = #{created_at,jdbcType=TIMESTAMP},
+      updated_at = #{updated_at,jdbcType=TIMESTAMP},
+      numbers = #{numbers,jdbcType=BIGINT}
+    where inid = #{inid,jdbcType=BIGINT}
+  </update>
+  
+  <select id="queryAll" parameterType="com.flyjaky.supermarket.entity.Inventory" resultType="list">
+  	select 
+    	<include refid="Base_Column_List" />
+    from inventorys
+  </select>
+  
+</mapper>
