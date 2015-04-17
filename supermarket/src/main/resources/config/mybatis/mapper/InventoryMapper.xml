@@ -31,6 +31,11 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.flyjaky.supermarket.entity.Inventory" >
+  
+ 	<selectKey resultType="int" keyProperty="inid" order="AFTER">
+		SELECT LAST_INSERT_ID()
+	</selectKey>
+  
     insert into inventorys
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="inid != null" >
@@ -104,7 +109,7 @@
     where inid = #{inid,jdbcType=BIGINT}
   </update>
   
-  <select id="queryAll" parameterType="com.flyjaky.supermarket.entity.Inventory" resultType="list">
+  <select id="queryAll" parameterType="com.flyjaky.supermarket.entity.Inventory" resultType="com.flyjaky.supermarket.entity.Inventory">
   	select 
     	<include refid="Base_Column_List" />
     from inventorys

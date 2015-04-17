@@ -3,9 +3,9 @@ package com.flyjaky.supermarket.entity;
 import java.util.Date;
 
 public class Inventory {
-    private Long inid;
+    private Integer inid;
 
-    private Long pid;
+    private Integer pid;
 
     private String remark;
 
@@ -15,19 +15,19 @@ public class Inventory {
 
     private Long numbers;
 
-    public Long getInid() {
+    public Integer getInid() {
         return inid;
     }
 
-    public void setInid(Long inid) {
+    public void setInid(Integer inid) {
         this.inid = inid;
     }
 
-    public Long getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(Long pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 

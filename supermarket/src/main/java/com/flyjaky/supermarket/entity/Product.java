@@ -3,7 +3,7 @@ package com.flyjaky.supermarket.entity;
 import java.util.Date;
 
 public class Product {
-    private Long pid;
+    private Integer pid;
 
     private String product_name;
 
@@ -19,11 +19,11 @@ public class Product {
 
     private Date updated_at;
 
-    public Long getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(Long pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.flyjaky.supermarket.entity.Product;
+import com.flyjaky.supermarket.service.InventoryService;
 import com.flyjaky.supermarket.service.ProductService;
 
 
@@ -28,12 +29,13 @@ import com.flyjaky.supermarket.service.ProductService;
  * */
 @Controller
 public class HelloController {
-	/**
-	 * code :01
-	 * */
+	
 	
 	@Resource
-	private ProductService productService; 
+	private ProductService productService;
+	
+	@Resource
+	private InventoryService inventoryService;
 
 	
 	/**

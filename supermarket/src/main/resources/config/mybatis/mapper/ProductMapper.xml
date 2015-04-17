@@ -14,7 +14,8 @@
 		<result column="updated_at" property="updated_at" jdbcType="TIMESTAMP" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		pid, product_name, purchase_price, sales_price, is_show_purchase_price,
+		pid, product_name, purchase_price, sales_price,
+		is_show_purchase_price,
 		project_code,
 		created_at, updated_at
 	</sql>
@@ -26,20 +27,31 @@
 		where pid = #{pid,jdbcType=BIGINT}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-		delete from products
+		delete from
+		products
 		where pid = #{pid,jdbcType=BIGINT}
 	</delete>
 	<insert id="insert" parameterType="com.flyjaky.supermarket.entity.Product">
+		<selectKey resultType="int" keyProperty="pid" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 		insert into products (pid, product_name, purchase_price,
-		sales_price, is_show_purchase_price, project_code,
+		sales_price,
+		is_show_purchase_price, project_code,
 		created_at, updated_at)
-		values (#{pid,jdbcType=BIGINT}, #{product_name,jdbcType=VARCHAR},
+		values
+		(#{pid,jdbcType=BIGINT}, #{product_name,jdbcType=VARCHAR},
 		#{purchase_price,jdbcType=DOUBLE},
-		#{sales_price,jdbcType=DOUBLE}, #{is_show_purchase_price,jdbcType=TINYINT},
+		#{sales_price,jdbcType=DOUBLE},
+		#{is_show_purchase_price,jdbcType=TINYINT},
 		#{project_code,jdbcType=VARCHAR},
-		#{created_at,jdbcType=TIMESTAMP}, #{updated_at,jdbcType=TIMESTAMP})
+		#{created_at,jdbcType=TIMESTAMP},
+		#{updated_at,jdbcType=TIMESTAMP})
 	</insert>
 	<insert id="insertSelective" parameterType="com.flyjaky.supermarket.entity.Product">
+	    <selectKey resultType="java.lang.Integer" keyProperty="pid" order="AFTER" >
+	      SELECT LAST_INSERT_ID()
+	    </selectKey>
 		insert into products
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="pid != null">
@@ -107,7 +119,8 @@
 				sales_price = #{sales_price,jdbcType=DOUBLE},
 			</if>
 			<if test="is_show_purchase_price != null">
-				is_show_purchase_price = #{is_show_purchase_price,jdbcType=TINYINT},
+				is_show_purchase_price =
+				#{is_show_purchase_price,jdbcType=TINYINT},
 			</if>
 			<if test="project_code != null">
 				project_code = #{project_code,jdbcType=VARCHAR},
@@ -124,12 +137,18 @@
 	<update id="updateByPrimaryKey" parameterType="com.flyjaky.supermarket.entity.Product">
 		update products
 		set product_name = #{product_name,jdbcType=VARCHAR},
-		purchase_price = #{purchase_price,jdbcType=DOUBLE},
-		sales_price = #{sales_price,jdbcType=DOUBLE},
-		is_show_purchase_price = #{is_show_purchase_price,jdbcType=TINYINT},
-		project_code = #{project_code,jdbcType=VARCHAR},
-		created_at = #{created_at,jdbcType=TIMESTAMP},
-		updated_at = #{updated_at,jdbcType=TIMESTAMP}
+		purchase_price =
+		#{purchase_price,jdbcType=DOUBLE},
+		sales_price =
+		#{sales_price,jdbcType=DOUBLE},
+		is_show_purchase_price =
+		#{is_show_purchase_price,jdbcType=TINYINT},
+		project_code =
+		#{project_code,jdbcType=VARCHAR},
+		created_at =
+		#{created_at,jdbcType=TIMESTAMP},
+		updated_at =
+		#{updated_at,jdbcType=TIMESTAMP}
 		where pid = #{pid,jdbcType=BIGINT}
 	</update>
 

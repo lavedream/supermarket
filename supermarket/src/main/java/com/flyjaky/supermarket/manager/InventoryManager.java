@@ -56,5 +56,15 @@ public class InventoryManager {
 		return inventoryDao.updateByPrimaryKeySelective(record);
 	}
 	
+	
+	/**
+	 * @author liushuaic
+	 * 查询某一个商品的库存
+	 * */
+	public Inventory selectByPrimaryKey(Long inid){
+		return inventoryDao.selectByPrimaryKey(inid);
+	}
+	
+	
 
 }

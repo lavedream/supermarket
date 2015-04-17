@@ -1,6 +1,5 @@
 package com.flyjaky.supermarket.service;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -39,7 +38,13 @@ public class InventoryService {
 		return inventoryManager.updateInventory(record);
 	}
 	
-	
+	/**
+	 * @author liushuaic
+	 * 查询某一个库存信息
+	 * */
+	public Inventory getInventoryById(Long inid){
+		return inventoryManager.selectByPrimaryKey(inid);
+	}
 	
 
 }

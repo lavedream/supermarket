@@ -46,8 +46,9 @@
 							<tbody>
 								<c:forEach items="${datas}" var="data">
 									<tr class="odd gradeA">
-										<td><a href="/inventory/detail.html?id=${data.oid}">${data.order_name}</a></td>
-										<td><a href="/inventory/toEditProduct.html?id=${data.oid }" class="btn btn-blue">修改商品数量</a></td>
+										<td><a href="/inventory/detail.html?id=${data.inid}">${data.inid}</a></td>
+										<td>${data.numbers==null?"无货":data.numbers}</td>
+										<td><a href="/inventory/toEditProduct.html?id=${data.inid }" class="btn btn-blue">修改商品数量</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
