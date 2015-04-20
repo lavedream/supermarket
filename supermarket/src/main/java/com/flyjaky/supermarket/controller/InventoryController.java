@@ -68,7 +68,7 @@ public class InventoryController {
 	@RequestMapping
 	@ResponseBody
 	public Map<String,Object> inventoryEditSave(ModelMap modelMap,Inventory record){
-		
+	
 		Map<String,Object> data=new HashMap<String, Object>();
 		
 		try{

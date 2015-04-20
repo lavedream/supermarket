@@ -4,8 +4,9 @@ InventoryEdit.prototype={
 			alert("ok");
 		},
 		saveInventory:function(){
-			$.post("/inventory/inventoryEditSave.html",$("#example").serialize(),function(data){
-				if(null !== data && data.messageStatus ==="000000"){
+			$.post("/inventory/inventoryEditSave.html",$("#inventoryForm").serialize(),function(data){
+				data=eval(data);
+				if(null != data && data.messageStatus == "000000"){
 					alert(data.message);
 				}else{
 					alert(data.messageStatus +"--"+ data.message);
