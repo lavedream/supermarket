@@ -14,6 +14,8 @@ public class Inventory {
     private Date updated_at;
 
     private Long numbers;
+    
+    private String productName;
 
     public Integer getInid() {
         return inid;
@@ -62,4 +64,12 @@ public class Inventory {
     public void setNumbers(Long numbers) {
         this.numbers = numbers;
     }
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 }

@@ -111,8 +111,21 @@
   
   <select id="queryAll" parameterType="com.flyjaky.supermarket.entity.Inventory" resultType="com.flyjaky.supermarket.entity.Inventory">
   	select 
-    	<include refid="Base_Column_List" />
+    	<include refid="Base_Column_List"/>
     from inventorys
+  </select>
+  
+  <select id="getInventoryAndProductNameById" parameterType="java.lang.Long" resultType="com.flyjaky.supermarket.entity.Inventory">
+	  select 
+	  	inven.numbers,
+	  	inven.inid,
+	  	product_name as productName
+	  from 
+	  	 inventorys inven,
+	 	 products pro 
+	  where 
+	  		 inven.pid=pro.pid
+	  	and  inven.inid=#{inid,jdbcType=BIGINT}
   </select>
   
 </mapper>

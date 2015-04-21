@@ -21,7 +21,7 @@
 								<tr>
 									<td><label>商品名称</label></td>
 									<td>
-										${data.inid }
+										${data.productName }
 									</td>
 								</tr>
 								<tr>
