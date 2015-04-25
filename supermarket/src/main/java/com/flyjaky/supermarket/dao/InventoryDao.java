@@ -20,4 +20,6 @@ public interface InventoryDao {
     
     List<Inventory> queryAll(Inventory record);
     
+    Inventory getInventoryAndProductNameById(Long inid);
+    
 }

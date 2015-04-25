@@ -46,5 +46,13 @@ public class InventoryService {
 		return inventoryManager.selectByPrimaryKey(inid);
 	}
 	
+	
+	/**
+	 * @author liushuaic
+	 * 查询某一个商品的库存
+	 * **/
+	public Inventory getInventoryAndProductNameById(Long inid){
+		return inventoryManager.getInventoryAndProductNameById(inid);
+	}
 
 }

@@ -66,5 +66,13 @@ public class InventoryManager {
 	}
 	
 	
+	/**
+	 * @author liushuaic
+	 * 查询某一个商品的库存
+	 * **/
+	public Inventory getInventoryAndProductNameById(Long inid){
+		return inventoryDao.getInventoryAndProductNameById(inid);
+	}
+	
 
 }

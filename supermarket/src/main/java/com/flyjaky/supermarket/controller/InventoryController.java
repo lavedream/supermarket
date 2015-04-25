@@ -51,7 +51,7 @@ public class InventoryController {
 	@RequestMapping
 	public void inventoryEdit(ModelMap modelMap,Long id){
 		
-		Inventory record=inventoryService.getInventoryById(id);
+		Inventory record=inventoryService.getInventoryAndProductNameById(id);
 		
 		modelMap.put("data", record);
 		
