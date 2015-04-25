@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <%@ include file="/common/head.jsp"%>
-<script type="text/javascript" src="<%=path%>/js/views/invertory/inventoryEdit.js"></script>
+<script type="text/javascript" src="<%=path%>/js/views/salesOrder/salesOrderNew.js"></script>
 <title>定单管理</title>
 </head>
 <body>
@@ -52,13 +52,15 @@
 										1.2
 									</td>
 									<td>
-										<input type="text" value="1"></input>
+										<input type="text" id="pid1" value="1" data_price="1.2" onchange="salesOrderNew.sumProductPrice(this)"></input>
 									</td>
 									<td>
-										<input type="text"/>
+										<input type="text" id="productSum"/>
 									</td>
 									<td>
-										<button class="btn btn-blue" type="button" onclick="">添加</button>
+										<button class="btn btn-blue" type="button" onclick="salesOrderNew.addProductNumber('')">+</button>
+										<button class="btn btn-blue" type="button" onclick="salesOrderNew.minusProductNumber()">-</button>
+										<button class="btn btn-blue" type="button" onclick="salesOrderNew.dropProduct(this)">删除</button>
 									</td>
 								</tr>
 							</tbody>

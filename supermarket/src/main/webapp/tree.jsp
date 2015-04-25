@@ -18,7 +18,7 @@
                                 <li><a href="/hello/hello.html"  target="right">商品信息管理</a> </li>
                                 <li><a href="/orderSheet/orderSheetList.html" target="right">定货单管理</a> </li>
                                 <li><a class="active" href="/inventory/inventoryList.html" target="right">库存管理</a> </li>
-                                <li><a>商品销售</a> </li>
+                                <li><a href="/salesOrder/salesOrderNew.html" target="right">商品销售</a> </li>
                                 <li><a>Submenu 5</a> </li>
                             </ul>
                         </li>
