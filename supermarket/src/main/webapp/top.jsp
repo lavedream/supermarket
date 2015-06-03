@@ -17,12 +17,12 @@
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
-                            <li>Hello Admin</li>
-                            <li><a href="#">Config</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li>你好 超级用户</li>
+                            <li><a href="#">配置</a></li>
+                            <li><a href="#">退出</a></li>
                         </ul>
                         <br />
-                        <span class="small grey">Last Login: 3 hours ago</span>
+                        <span class="small grey">最后登陆时间: 3 小时前</span>
                     </div>
                 </div>
                 <div class="clear">
@@ -33,26 +33,26 @@
         </div>
         <div class="grid_12">
             <ul class="nav main">
-                <li class="ic-dashboard"><a href="dashboard.html"><span>Dashboard</span></a> </li>
-                <li class="ic-form-style"><a href="javascript:"><span>Controls</span></a>
+               <!--  <li class="ic-dashboard"><a href="dashboard.html"><span>Dashboard</span></a> </li>
+                <li class="ic-form-style"><a href="javascript:"><span>操作</span></a>
                     <ul>
                         <li><a href="form-controls.html">Forms</a> </li>
-                        <li><a href="buttons.html">Buttons</a> </li>
+                        <li><a href="buttons.html">r</a> </li>
                         <li><a href="form-controls.html">Full Page Example</a> </li>
                         <li><a href="table.html">Page with Sidebar Example</a> </li>
                     </ul>
                 </li>
 				<li class="ic-typography"><a href="typography.html"><span>Typography</span></a></li>
                 <li class="ic-charts"><a href="charts.html"><span>Charts &amp; Graphs</span></a></li>
-                <li class="ic-grid-tables"><a href="table.html"><span>Data Table</span></a></li>
-                <li class="ic-gallery dd"><a href="javascript:"><span>Image Galleries</span></a>
+                <li class="ic-grid-tables"><a href="table.html"><span>数据报表</span></a></li>
+                <li class="ic-gallery dd"><a href="javascript:"><span>数据报表</span></a>
                		 <ul>
                         <li><a href="image-gallery.html">Pretty Photo</a> </li>
                         <li><a href="gallery-with-filter.html">Gallery with Filter</a> </li>
                     </ul>
                 </li>
                 <li class="ic-notifications"><a href="notifications.html"><span>Notifications</span></a></li>
-
+ -->
             </ul>
         </div>
         <div class="clear">
