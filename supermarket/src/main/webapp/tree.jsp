@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>学生信息管理</title>
+    <title>超市收银系统</title>
      <%@ include file="/common/head.jsp"%>
 <%--      <jsp:include page="/common/head.jsp" /> --%>
 </head>
@@ -22,13 +22,9 @@
                                 <li><a>Submenu 5</a> </li>
                             </ul>
                         </li>
-                        <li><a class="menuitem">Menu 2</a>
+                        <li><a class="menuitem">商品销售</a>
                             <ul class="submenu">
-                                <li><a>Submenu 1</a> </li>
-                                <li><a>Submenu 2</a> </li>
-                                <li><a>Submenu 3</a> </li>
-                                <li><a>Submenu 4</a> </li>
-                                <li><a>Submenu 5</a> </li>
+                                <li><a href="/salesOrder/salesOrderNew.html" target="right">商品销售</a> </li>
                             </ul>
                         </li>
                     </ul>
