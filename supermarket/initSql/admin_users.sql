@@ -1,5 +1,71 @@
 -- --------------------------------------------------------
 -- 主机:                           127.0.0.1
+-- 服务器版本:                        10.0.16-MInnodbDB - mariadb.org binary distribution
+-- 服务器操作系统:                      Win64
+-- HeidiSQL 版本:                  9.1.0.4904
+-- --------------------------------------------------------
+-- 导出  表 test.inventorys 结构
+CREATE TABLE IF NOT EXISTS `inventorys` (
+  `inid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` bigint(20) DEFAULT NULL COMMENT '商品id',
+  `remark` varchar(255) DEFAULT NULL COMMENT '说明',
+  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+  `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
+  `numbers` bigint(20) DEFAULT NULL COMMENT '数量',
+  PRIMARY KEY (`inid`)
+) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8  COMMENT='库存表';
+
+
+-- 导出  表 test.order_sheets 结构
+CREATE TABLE IF NOT EXISTS `order_sheets` (
+  `oid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `order_number` varchar(255) DEFAULT NULL COMMENT '项目编号',
+  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+  `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
+  `order_name` varchar(255) DEFAULT NULL COMMENT '定单名称',
+  PRIMARY KEY (`oid`)
+) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8  COMMENT='定单表';
+
+
+
+-- 导出  表 test.products 结构
+CREATE TABLE IF NOT EXISTS `products` (
+  `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT '项目id',
+  `product_name` varchar(255) DEFAULT '' COMMENT '商品名称',
+  `purchase_price` double DEFAULT NULL COMMENT '商品进价',
+  `sales_price` double DEFAULT NULL COMMENT '销售价格',
+  `is_show_purchase_price` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否显示进价',
+  `project_code` varchar(255) NOT NULL DEFAULT '' COMMENT '商品编码',
+  `created_at` datetime DEFAULT NULL COMMENT '录入系统时间',
+  `updated_at` datetime NOT NULL COMMENT '商品更新时间',
+  PRIMARY KEY (`pid`,`updated_at`)
+) ENGINE=Innodb AUTO_INCREMENT=41 DEFAULT CHARSET=utf8  COMMENT='商品表';
+
+
+
+
+-- 导出  表 test.product_order_sheet_tabs 结构
+CREATE TABLE IF NOT EXISTS `product_order_sheet_tabs` (
+  `osid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
+  `oid` bigint(20) DEFAULT NULL COMMENT '定单id',
+  `pid` bigint(20) DEFAULT NULL COMMENT '产品id',
+  PRIMARY KEY (`osid`)
+) ENGINE=Innodb DEFAULT CHARSET=utf8  COMMENT='定单与产品中间表';
+
+
+
+-- 导出  表 test.users 结构
+CREATE TABLE IF NOT EXISTS `users` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户表主键',
+  `uname` varchar(250) DEFAULT NULL COMMENT '用户名称',
+  `sex` tinyint(4) DEFAULT NULL COMMENT '性别 0：女 | 1：男',
+  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+  `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`uid`)
+) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8  COMMENT='用户表';
+
 -- 服务器版本:                        10.0.16-MariaDB - mariadb.org binary distribution
 -- 服务器操作系统:                      Win64
 -- HeidiSQL 版本:                  9.1.0.4904
@@ -129,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`uid`)
 ) ENGINE=Aria AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='用户表';
 
--- 正在导出表  test.users 的数据：1 rows
+-- 正在导出表  test.users 的数据：1 rows 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`uid`, `uname`, `sex`, `created_at`, `updated_at`) VALUES
 	(1, 'hello world', 1, '2015-02-11 11:03:12', '2015-02-11 11:03:12');
