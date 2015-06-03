@@ -40,6 +40,7 @@
 								<tr>
 									<th>商品名称</th>
 									<th>商品进价</th>
+									<th>商品编码</th>
 									<th>创建时间</th>
 									<th>操作</th>
 								</tr>
@@ -49,6 +50,7 @@
 									<tr class="odd gradeA">
 										<td><a href="/hello/detail.html?id=${product.pid}">${product.product_name}</a></td>
 										<td>${product.purchase_price}</td>
+										<td>${product.project_code}</td>
 										<td>${product.created_at }</td>
 										<td><a href="/hello/toEditProduct.html?id=${product.pid }" class="btn btn-blue">修改商品</a></td>
 									</tr>
