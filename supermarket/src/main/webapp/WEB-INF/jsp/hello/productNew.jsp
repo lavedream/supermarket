@@ -26,7 +26,10 @@
 									<td><label>商品进价</label></td>
 									<td><input name="purchase_price" type="text" class="mini" /></td>
 								</tr>
-
+								<tr>
+									<td><label>商品编码</label></td>
+									<td><input name="project_code" type="text" class="mini" /></td>
+								</tr>
 								<tr>
 									<td colspan="2">
 										<button  class="btn btn-blue" type="button" onclick="productNew.saveProduct()">保存</button>
