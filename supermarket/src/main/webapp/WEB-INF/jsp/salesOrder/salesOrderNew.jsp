@@ -64,6 +64,7 @@
 									</td>
 								</tr>
 							</tbody>
+>>>>>>> branch 'master' of https://github.com/lavedream/supermarket.git
 						</table>
 						
 					</form>
