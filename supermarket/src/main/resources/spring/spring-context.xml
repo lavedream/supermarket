@@ -23,7 +23,6 @@
 			<list>
 
 				<ref bean="jsonHttpMessageConverter" />
-				<ref bean="stringHttpMessageConverter" />
 
 			</list>
 
