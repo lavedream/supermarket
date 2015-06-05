@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.flyjaky.supermarket.entity.Product;
 
+
 public interface ProductDao {
     int deleteByPrimaryKey(Long pid);
 
@@ -20,4 +21,6 @@ public interface ProductDao {
     
     
     public List<Map<String,Object>> getProductAllPage();
+    
+    Product getProductByProductCode(String productCode);
 }

@@ -156,6 +156,10 @@
 	<select id="getProductAllPage" resultType="map">
 		select * from products
 	</select>
+	
+	<select id="getProductByProductCode" resultType="com.flyjaky.supermarket.entity.Product" parameterType="string">
+		select * from products where project_code=#{productCode}
+	</select>
 
 
 </mapper>

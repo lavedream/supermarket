@@ -53,4 +53,14 @@ public class ProductService {
 		productManager.updateByPrimaryKeySelective(product);
 	}
 	
+	
+	/**
+	 * @author liushuaic
+	 * @date 2015/05/02 12:49
+	 * @desc 根据产品编号查询，产品
+	 * */
+	public Product getProductByProductCode(String productCode){
+		return productManager.getProductByProductCode(productCode);
+	}
+	
 }

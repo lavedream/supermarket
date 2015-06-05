@@ -32,4 +32,10 @@ public class ProductManager {
 	public void updateByPrimaryKeySelective(Product product){
 		productDao.updateByPrimaryKeySelective(product);
 	}
+	
+	public Product getProductByProductCode(String productCode){
+		return productDao.getProductByProductCode(productCode);
+	}
+	
+	
 }
