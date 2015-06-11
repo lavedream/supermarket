@@ -66,66 +66,27 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`uid`)
 ) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8  COMMENT='用户表';
 
+
+
+
 -- 服务器版本:                        10.0.16-MariaDB - mariadb.org binary distribution
 -- 服务器操作系统:                      Win64
 -- HeidiSQL 版本:                  9.1.0.4904
 -- --------------------------------------------------------
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- 导出  表 test.inventorys 结构
-CREATE TABLE IF NOT EXISTS `inventorys` (
-  `inid` int(11) NOT NULL AUTO_INCREMENT,
-  `pid` bigint(20) DEFAULT NULL COMMENT '商品id',
-  `remark` varchar(255) DEFAULT NULL COMMENT '说明',
-  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
-  `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
-  `numbers` bigint(20) DEFAULT NULL COMMENT '数量',
-  PRIMARY KEY (`inid`)
-) ENGINE=Aria AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='库存表';
+DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='库存表';
 
--- 正在导出表  test.inventorys 的数据：1 rows
-/*!40000 ALTER TABLE `inventorys` DISABLE KEYS */;
+
 INSERT INTO `inventorys` (`inid`, `pid`, `remark`, `created_at`, `updated_at`, `numbers`) VALUES
 	(1, 40, NULL, '2015-04-17 14:39:12', '2015-04-20 16:56:18', 33);
-/*!40000 ALTER TABLE `inventorys` ENABLE KEYS */;
 
+	
 
--- 导出  表 test.order_sheets 结构
-CREATE TABLE IF NOT EXISTS `order_sheets` (
-  `oid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `order_number` varchar(255) DEFAULT NULL COMMENT '项目编号',
-  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
-  `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
-  `order_name` varchar(255) DEFAULT NULL COMMENT '定单名称',
-  PRIMARY KEY (`oid`)
-) ENGINE=Aria AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='定单表';
-
--- 正在导出表  test.order_sheets 的数据：1 rows
-/*!40000 ALTER TABLE `order_sheets` DISABLE KEYS */;
 INSERT INTO `order_sheets` (`oid`, `order_number`, `created_at`, `updated_at`, `order_name`) VALUES
 	(1, NULL, NULL, NULL, '11');
-/*!40000 ALTER TABLE `order_sheets` ENABLE KEYS */;
 
-
--- 导出  表 test.products 结构
-CREATE TABLE IF NOT EXISTS `products` (
-  `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT '项目id',
-  `product_name` varchar(255) DEFAULT '' COMMENT '商品名称',
-  `purchase_price` double DEFAULT NULL COMMENT '商品进价',
-  `sales_price` double DEFAULT NULL COMMENT '销售价格',
-  `is_show_purchase_price` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否显示进价',
-  `project_code` varchar(255) NOT NULL DEFAULT '' COMMENT '商品编码',
-  `created_at` datetime DEFAULT NULL COMMENT '录入系统时间',
-  `updated_at` datetime NOT NULL COMMENT '商品更新时间',
-  PRIMARY KEY (`pid`,`updated_at`)
-) ENGINE=Aria AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='商品表';
-
--- 正在导出表  test.products 的数据：40 rows
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+	
 INSERT INTO `products` (`pid`, `product_name`, `purchase_price`, `sales_price`, `is_show_purchase_price`, `project_code`, `created_at`, `updated_at`) VALUES
 	(1, '5555', 2.1314, 1, 1, '1', '2015-03-03 18:51:58', '2015-03-22 20:52:47'),
 	(2, '11', 111, NULL, 0, '', '2015-03-14 14:58:05', '2015-03-14 14:58:05'),
@@ -167,39 +128,134 @@ INSERT INTO `products` (`pid`, `product_name`, `purchase_price`, `sales_price`, 
 	(38, '99', 99, NULL, 0, '', '2015-04-17 14:33:11', '2015-04-17 14:33:11'),
 	(39, '99', 99, NULL, 0, '', '2015-04-17 14:38:34', '2015-04-17 14:38:34'),
 	(40, '99', 99, NULL, 0, '', '2015-04-17 14:39:11', '2015-04-17 14:39:11');
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
-
--- 导出  表 test.product_order_sheet_tabs 结构
-CREATE TABLE IF NOT EXISTS `product_order_sheet_tabs` (
-  `osid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
-  `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
-  `oid` bigint(20) DEFAULT NULL COMMENT '定单id',
-  `pid` bigint(20) DEFAULT NULL COMMENT '产品id',
-  PRIMARY KEY (`osid`)
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='定单与产品中间表';
-
--- 正在导出表  test.product_order_sheet_tabs 的数据：0 rows
-/*!40000 ALTER TABLE `product_order_sheet_tabs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `product_order_sheet_tabs` ENABLE KEYS */;
-
-
--- 导出  表 test.users 结构
-CREATE TABLE IF NOT EXISTS `users` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户表主键',
-  `uname` varchar(250) DEFAULT NULL COMMENT '用户名称',
-  `sex` tinyint(4) DEFAULT NULL COMMENT '性别 0：女 | 1：男',
-  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
-  `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`uid`)
-) ENGINE=Aria AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 PAGE_CHECKSUM=1 TRANSACTIONAL=1 COMMENT='用户表';
-
--- 正在导出表  test.users 的数据：1 rows 
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+	
 INSERT INTO `users` (`uid`, `uname`, `sex`, `created_at`, `updated_at`) VALUES
 	(1, 'hello world', 1, '2015-02-11 11:03:12', '2015-02-11 11:03:12');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+drop index rid on menu_role_tabs;
+
+drop index mid_index on menu_role_tabs;
+
+drop table if exists menu_role_tabs;
+
+drop table if exists menus;
+
+drop index uid on role_user_tabs;
+
+drop index rid_index on role_user_tabs;
+
+drop table if exists role_user_tabs;
+
+drop table if exists roles;
+
+/*==============================================================*/
+/* Table: menu_role_tabs                                        */
+/*==============================================================*/
+create table menu_role_tabs
+(
+   mrid                 bigint(20) not null auto_increment comment '主键',
+   rid                  bigint(20) comment '角色id',
+   created_at           bigint(13) comment '创建时间',
+   updated_at           bigint(13) comment '修改时间',
+   mid                  bigint(20),
+   primary key (mrid)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+alter table menu_role_tabs comment '菜单_角色_中间表';
+
+/*==============================================================*/
+/* Index: mid_index                                             */
+/*==============================================================*/
+create index mid_index on menu_role_tabs
+(
+   mid
+);
+
+/*==============================================================*/
+/* Index: rid                                                   */
+/*==============================================================*/
+create index rid on menu_role_tabs
+(
+   rid
+);
+
+/*==============================================================*/
+/* Table: menus                                                 */
+/*==============================================================*/
+create table menus
+(
+   mid                  bigint(20) not null auto_increment comment '菜单id',
+   menu_name            varchar(200) comment '菜单名称',
+   created_at           bigint(13) comment '创建时间',
+   updated_at           bigint(13) comment '修改时间',
+   menu_url             varchar(300) comment '菜单链接',
+   orders               tinyint comment '排序',
+   parent_id            bigint(20),
+   primary key (mid)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+alter table menus comment '菜单表';
+
+/*==============================================================*/
+/* Table: role_user_tabs                                        */
+/*==============================================================*/
+create table role_user_tabs
+(
+   ruid                 bigint(20) auto_increment comment '主键',
+   rid                  bigint(20) comment '角色id',
+   uid                  bigint(20) comment '人员id',
+   created_at           bigint(13) comment '创建时间',
+   updated_at           bigint(13) comment '修改时间'
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+alter table role_user_tabs comment '角色_人_中间表';
+
+/*==============================================================*/
+/* Index: rid_index                                             */
+/*==============================================================*/
+create index rid_index on role_user_tabs
+(
+   rid
+);
+
+/*==============================================================*/
+/* Index: uid                                                   */
+/*==============================================================*/
+create index uid on role_user_tabs
+(
+   uid
+);
+
+/*==============================================================*/
+/* Table: roles                                                 */
+/*==============================================================*/
+create table roles
+(
+   rid                  bigint(20) not null auto_increment comment '角色主键',
+   rorle_name           varchar(200) comment '角色名称',
+   created_at           bigint(13) comment '创建时间',
+   updated_at           bigint(13) comment '修改时间',
+   primary key (rid)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+alter table roles comment '角色表';
+
