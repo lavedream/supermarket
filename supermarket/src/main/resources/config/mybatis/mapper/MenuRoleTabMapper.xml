@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flyjaky.supermarket.dao.MenuRoleTabMapper" >
+  <resultMap id="BaseResultMap" type="com.flyjaky.supermarket.entity.MenuRoleTab" >
+    <id column="mrid" property="mrid" jdbcType="BIGINT" />
+    <result column="rid" property="rid" jdbcType="BIGINT" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="mid" property="mid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mrid, rid, created_at, updated_at, mid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from menu_role_tabs
+    where mrid = #{mrid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from menu_role_tabs
+    where mrid = #{mrid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.flyjaky.supermarket.entity.MenuRoleTab" >
+    insert into menu_role_tabs (mrid, rid, created_at, 
+      updated_at, mid)
+    values (#{mrid,jdbcType=BIGINT}, #{rid,jdbcType=BIGINT}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{mid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flyjaky.supermarket.entity.MenuRoleTab" >
+    insert into menu_role_tabs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mrid != null" >
+        mrid,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="mid != null" >
+        mid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mrid != null" >
+        #{mrid,jdbcType=BIGINT},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flyjaky.supermarket.entity.MenuRoleTab" >
+    update menu_role_tabs
+    <set >
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mid != null" >
+        mid = #{mid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where mrid = #{mrid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flyjaky.supermarket.entity.MenuRoleTab" >
+    update menu_role_tabs
+    set rid = #{rid,jdbcType=BIGINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      mid = #{mid,jdbcType=BIGINT}
+    where mrid = #{mrid,jdbcType=BIGINT}
+  </update>
+</mapper>
