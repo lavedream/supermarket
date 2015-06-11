@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.flyjaky.supermarket.dao.MenuMapper" >
+<mapper namespace="com.flyjaky.supermarket.dao.MenuDao" >
   <resultMap id="BaseResultMap" type="com.flyjaky.supermarket.entity.Menu" >
     <id column="mid" property="mid" jdbcType="BIGINT" />
     <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
@@ -114,4 +114,22 @@
       parent_id = #{parentId,jdbcType=BIGINT}
     where mid = #{mid,jdbcType=BIGINT}
   </update>
+  
+  
+  <resultMap type="com.flyjaky.supermarket.entity.Menu" id="menusForGetMenus">
+  	<result column="menu_name" property="menuName"/>
+  	<collection property="chs" ofType="com.flyjaky.supermarket.entity.Menu" >
+  		 	<result column="menu_name" property="menuName"/>
+  		 	<result column="menu_url"  property="menuUrl"/>
+  	</collection>
+  </resultMap>
+  <select id="getMenus" resultMap="menusForGetMenus">
+  	select
+	 pm.menu_name,
+	 ch.menu_name,
+	 ch.menu_url
+	from menus pm,menus ch where pm.mid=ch.parent_id;
+  </select>
+  
+  
 </mapper>

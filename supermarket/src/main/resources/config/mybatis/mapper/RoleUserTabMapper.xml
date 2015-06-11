@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.flyjaky.supermarket.dao.RoleUserTabMapper" >
+<mapper namespace="com.flyjaky.supermarket.dao.RoleUserTabDao" >
   <resultMap id="BaseResultMap" type="com.flyjaky.supermarket.entity.RoleUserTab" >
     <id column="ruid" property="ruid" jdbcType="BIGINT" />
     <result column="rid" property="rid" jdbcType="BIGINT" />
