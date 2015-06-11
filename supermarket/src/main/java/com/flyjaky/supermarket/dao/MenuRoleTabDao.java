@@ -2,7 +2,7 @@ package com.flyjaky.supermarket.dao;
 
 import com.flyjaky.supermarket.entity.MenuRoleTab;
 
-public interface MenuRoleTabMapper {
+public interface MenuRoleTabDao {
     int deleteByPrimaryKey(Long mrid);
 
     int insert(MenuRoleTab record);

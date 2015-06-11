@@ -2,7 +2,7 @@ package com.flyjaky.supermarket.dao;
 
 import com.flyjaky.supermarket.entity.Role;
 
-public interface RoleMapper {
+public interface RoleDao {
     int deleteByPrimaryKey(Long rid);
 
     int insert(Role record);

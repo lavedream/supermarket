@@ -2,7 +2,7 @@ package com.flyjaky.supermarket.dao;
 
 import com.flyjaky.supermarket.entity.RoleUserTab;
 
-public interface RoleUserTabMapper {
+public interface RoleUserTabDao {
     int deleteByPrimaryKey(Long ruid);
 
     int insert(RoleUserTab record);
