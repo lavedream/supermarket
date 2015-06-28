@@ -7,12 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.flyjaky.supermarket.base.BaseController;
+import com.flyjaky.supermarket.common.page.PageParameter;
 import com.flyjaky.supermarket.entity.Product;
 import com.flyjaky.supermarket.service.InventoryService;
 import com.flyjaky.supermarket.service.ProductService;
@@ -28,7 +31,7 @@ import com.flyjaky.supermarket.service.ProductService;
  * 5，6位 ，错误代码
  * */
 @Controller
-public class HelloController {
+public class HelloController extends BaseController{
 	
 	
 	@Resource
@@ -42,9 +45,16 @@ public class HelloController {
 	 * code :01
 	 * */
 	@RequestMapping
-	public void hello(ModelMap map){
-		List<Map<String,Object>> data=productService.getProductAll();
+	public void hello(ModelMap map,HttpServletRequest request){
+		
+		
+		Map<String,Object> param=new HashMap<String,Object>();
+		
+		PageParameter page=super.initPage(request);
+		param.put("page",page);
+		List<Map<String,Object>> data=productService.getProductAllPage(param);
 		map.put("data",data);
+		map.put("page", page);
 	}
 	
 	/**

@@ -1,4 +1,5 @@
- <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,9 +30,8 @@
 						<table class="form">
 							<tbody>
 								<tr>
-									<td align="left">
-										<a href="/hello/productNew.html" class="btn btn-blue">添加商品</a>
-									</td>
+									<td align="left"><a href="/hello/productNew.html"
+										class="btn btn-blue">添加商品</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -52,10 +52,19 @@
 										<td>${product.purchase_price}</td>
 										<td>${product.project_code}</td>
 										<td>${product.created_at }</td>
-										<td><a href="/hello/toEditProduct.html?id=${product.pid }" class="btn btn-blue">修改商品</a></td>
+										<td><a
+											href="/hello/toEditProduct.html?id=${product.pid }"
+											class="btn btn-blue">修改商品</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
+						</table>
+						<table>
+							<tr>
+								<td>每页显示：${page.pageSize }&nbsp;&nbsp;</td>
+								<td>总条数：${page.totalCount}</td>
+								<td></td>
+							</tr>
 						</table>
 					</div>
 				</form>

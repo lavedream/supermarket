@@ -25,8 +25,8 @@ public class ProductService {
 	private InventoryManager inventoryManager;
 	
 
-	public List<Map<String,Object>> getProductAll(){
-		return productManager.getProductAll();
+	public List<Map<String,Object>> getProductAllPage(Map<String,Object> data){
+		return productManager.getProductAllPage(data);
 	}
 	
 	

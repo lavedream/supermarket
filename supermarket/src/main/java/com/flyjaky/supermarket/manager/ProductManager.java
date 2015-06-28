@@ -17,8 +17,8 @@ public class ProductManager {
 	@Resource
 	private ProductDao productDao;
 	
-	public List<Map<String,Object>> getProductAll(){
-		return productDao.getProductAllPage();
+	public List<Map<String,Object>> getProductAllPage(Map<String,Object> data){
+		return productDao.getProductAllPage(data);
 	}
 	
 	public Product getProductById(Long id){

@@ -20,7 +20,7 @@ public interface ProductDao {
     int updateByPrimaryKey(Product record);
     
     
-    public List<Map<String,Object>> getProductAllPage();
+    public List<Map<String,Object>> getProductAllPage(Map<String,Object> data);
     
     Product getProductByProductCode(String productCode);
 }
