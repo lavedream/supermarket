@@ -9,11 +9,13 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.flyjaky.cache.base.RedisExample;
 import com.flyjaky.supermarket.base.BaseController;
 import com.flyjaky.supermarket.common.page.PageParameter;
 import com.flyjaky.supermarket.entity.Product;
@@ -31,7 +33,7 @@ import com.flyjaky.supermarket.service.ProductService;
  * 5，6位 ，错误代码
  * */
 @Controller
-public class HelloController extends BaseController{
+public class HelloController{
 	
 	
 	@Resource
@@ -40,6 +42,9 @@ public class HelloController extends BaseController{
 	@Resource
 	private InventoryService inventoryService;
 
+	
+	@Resource
+	private RedisExample redisExample;
 	
 	/**
 	 * code :01
@@ -50,11 +55,16 @@ public class HelloController extends BaseController{
 		
 		Map<String,Object> param=new HashMap<String,Object>();
 		
-		PageParameter page=super.initPage(request);
-		param.put("page",page);
+//		PageParameter page=super.initPage(request);
+//		param.put("page",page);
 		List<Map<String,Object>> data=productService.getProductAllPage(param);
 		map.put("data",data);
-		map.put("page", page);
+//		map.put("page", page);
+		
+		redisExample.save("hello","hello!");
+		
+		System.out.println(redisExample.get("hello"));
+		
 	}
 	
 	/**

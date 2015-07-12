@@ -10,8 +10,8 @@
 
 
 	<import resource="springDataSource-context.xml" />
-	<context:component-scan base-package="com.flyjaky.supermarket">
-<!-- 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
+	<context:component-scan base-package="com.flyjaky">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 
 
@@ -46,7 +46,9 @@
 			</list>
 		</property>
 	</bean>
-
+	
+	
+<!-- 	<import resource="spring-context.xml"/> -->
 	
 
 </beans>
