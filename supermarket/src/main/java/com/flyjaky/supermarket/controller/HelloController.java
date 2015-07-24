@@ -15,7 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.flyjaky.cache.base.RedisExample;
+import com.flyjaky.base.cache.RedisExample;
 import com.flyjaky.supermarket.base.BaseController;
 import com.flyjaky.supermarket.common.page.PageParameter;
 import com.flyjaky.supermarket.entity.Product;
@@ -139,6 +139,13 @@ public class HelloController{
 		}  
 		map.put("data", data); 
 		return data;
+	}
+	
+	@RequestMapping
+	@ResponseBody
+	public Map<String,Object> testHello(ModelMap map,Product product){
+		System.out.println("hello");
+		return new HashMap<String,Object>();
 	}
 	
 }

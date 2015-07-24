@@ -35,7 +35,7 @@ public class LoginFilter implements Filter {
 			if(null == session.getAttribute("sessionToket")){
 				session.setAttribute("sessionToket",this.strTokit);
 				System.out.println("set session");
-				arg0.getRequestDispatcher("/index.jsp").forward(arg0, arg1);
+				arg0.getRequestDispatcher("/login.html").forward(arg0, arg1);
 			}
 		}
 
