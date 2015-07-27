@@ -113,6 +113,13 @@
 		</dependency>
 
 
+		<!-- spring 事物配置 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.6</version>
+		</dependency>
+
 		<!-- 数据源配置 -->
 
 		<dependency>
