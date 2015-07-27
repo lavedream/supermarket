@@ -28,13 +28,43 @@
 		<property name="configLocation"
 			value="/WEB-INF/classes/config/mybatis/myBatisConfigration.xml"></property>
 		<property name="mapperLocations" value="/WEB-INF/classes/config/mybatis/mapper/*.xml" />
-		<property name="typeAliasesPackage" value="com.flyjaky.supermarket.dao" />
+<!-- 		<property name="typeAliasesPackage" value="com.flyjaky.supermarket.dao" /> -->
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.flyjaky.supermarket.dao"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
+	
+<!-- 	事物配置 -->
+	
+	<context:annotation-config />
+		 <!-- ================================事务相关控制=================================================    -->
+   <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">     
+          <property name="dataSource" ref="myDataSource"></property>
+   </bean>     
+  
+  <tx:advice id="ylyjakyTxAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+    
+      <tx:method name="delete*" propagation="REQUIRED" read-only="false"  rollback-for="java.lang.Exception" no-rollback-for="java.lang.RuntimeException"/>
+                            
+      <tx:method name="insert*" propagation="REQUIRED" read-only="false"  rollback-for="java.lang.RuntimeException" />
+      <tx:method name="save*" propagation="REQUIRED" read-only="false"    rollback-for="java.lang.RuntimeException" />
+      
+      <tx:method name="update*" propagation="REQUIRED" read-only="false"  rollback-for="java.lang.Exception" />
+      
+      <tx:method name="find*" propagation="SUPPORTS"/>
+      <tx:method name="get*" propagation="SUPPORTS"/>
+      <tx:method name="select*" propagation="SUPPORTS"/>
+    </tx:attributes>
+  </tx:advice>
+  
+  <aop:config>    
+<!--     把事务控制在Service层 -->
+    <aop:pointcut id="ylyjakyTxAdvicePointCut" expression="execution(public * com.flyjaky.supermarket.service.*.*(..))" /> 
+    <aop:advisor pointcut-ref="ylyjakyTxAdvicePointCut" advice-ref="ylyjakyTxAdvice" />
+  </aop:config>
 	
 	
 
